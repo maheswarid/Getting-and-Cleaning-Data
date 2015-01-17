@@ -1,4 +1,4 @@
-run_analysis<- function(data_directory){
+run_analysis<- function(data_directory = "UCI HAR Dataset"){
     data_files <- list.files(data_directory,recursive=TRUE)
     
     #Read the Y data from both train and test data sets into a table
@@ -17,11 +17,13 @@ run_analysis<- function(data_directory){
     activitySet <- rbind(yactivity_trainData,yactivity_testData)
     featureSet <- rbind(xfeature_trainData,xfeature_testData)
     
+    
     #assign names to the datasets
     names(subjectSet)<- c("subject")
     names(activitySet) <- c("activity")
     featurenames <- read.table(file.path(data_directory,"features.txt"))
     names(featureSet)<-featurenames$V2
+    
     
     #form the data frame
     humanActivityData <- cbind(subjectSet,activitySet)
@@ -50,7 +52,6 @@ run_analysis<- function(data_directory){
     {
         HAD_subgroup$subject[i] <-paste("Volunter",HAD_subgroup$subject[i])
     }
-    
     #change features variable names --> meaningful readable names
     names(HAD_subgroup) <- gsub("Acc", "Accelerator", names(HAD_subgroup))
     names(HAD_subgroup) <- gsub("Mag", "Magnitude", names(HAD_subgroup))
@@ -63,6 +64,5 @@ run_analysis<- function(data_directory){
     TidySet<-aggregate(. ~subject + activity, HAD_subgroup, mean)
     TidySet<-TidySet[order(TidySet$subject,TidySet$activity),]
     write.table(TidySet, file = "tidydata.txt",row.name=FALSE)
-    
-   
+    TidySet
 }
