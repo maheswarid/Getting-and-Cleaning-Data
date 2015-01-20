@@ -1,6 +1,11 @@
 run_analysis<- function(data_directory = "UCI HAR Dataset"){
     data_files <- list.files(data_directory,recursive=TRUE)
     
+    #load the required libraries
+    library(data.table) #required for handling data tables
+    library(plyr) #required for the aggreate function
+    
+    
     #Read the Y data from both train and test data sets into a table
     
     yactivity_trainData <- read.table(file.path(data_directory,"train","y_train.txt"))
