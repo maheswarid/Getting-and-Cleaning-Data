@@ -80,8 +80,11 @@ Using the plyr library do the average of variable grouped by person subject per 
 
 Fields in the tidydata  are
 "subject" "activity" 
+
 "timeBodyAccelerator-mean()-X" "timeBodyAccelerator-mean()-Y" "timeBodyAccelerator-mean()-Z" 
+
 "timeBodyAccelerator-std()-X" "timeBodyAccelerator-std()-Y" "timeBodyAccelerator-std()-Z" 
+
 "timeGravityAccelerator-mean()-X" "timeGravityAccelerator-mean()-Y" "timeGravityAccelerator-mean()-Z" 
 "timeGravityAccelerator-std()-X" "timeGravityAccelerator-std()-Y" "timeGravityAccelerator-std()-Z" 
 "timeBodyAcceleratorJerk-mean()-X" "timeBodyAcceleratorJerk-mean()-Y" "timeBodyAcceleratorJerk-mean()-Z" 
